@@ -19,7 +19,7 @@ sendMessage = function(){
     $('#message').val('').focus();
 };
 
-// Listen reponse from server
+// Listen response from server
 socket.on('chatBox', function(data){
 
     var output = document.getElementById('output');
