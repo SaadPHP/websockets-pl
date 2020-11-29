@@ -17,8 +17,14 @@ var io = socket(server);
 io.on('connection', async (socket) => {
     console.log('socket connection made successfully', socket.id);
     
+    // sending response back to front-end [messages]
     socket.on('chatBox', function(data){
         io.sockets.emit('chatBox',data);
+    });
+
+    // sending response back to front-end to display who's typing
+    socket.on('type', function(data){
+        socket.broadcast.emit('type',data);
     });
 });
 
